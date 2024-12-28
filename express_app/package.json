@@ -8,7 +8,8 @@
     "build:local": "cross-env NODE_ENV=development tsc",
     "build:production": "NODE_ENV=production tsc",
     "start:local": "cross-env NODE_ENV=development dotenv -e .env -- node ./dist/index.js",
-    "start:production": "NODE_ENV=production dotenv -e .env.production -- node ./dist/index.js"
+    "start:production": "NODE_ENV=development dotenv -e .env -- node ./dist/index.js"
+
   },
   "keywords": [],
   "author": "",
