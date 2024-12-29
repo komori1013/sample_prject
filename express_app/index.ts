@@ -31,7 +31,7 @@ db.connect((err: any) => {
 });
 
 // データの追加
-app.post("/authentication", (req, res) => {
+app.post("/api/authentication", (req, res) => {
   const account_name = req.body.account_name;
   const password = req.body.password; 
  
@@ -51,7 +51,7 @@ app.post("/authentication", (req, res) => {
   });
 });
 
-app.post("/token", (req, res) => {
+app.post("/api/token", (req, res) => {
   // ランダムな32文字の生成、hexは16進数の略、ランダムなバイトデータを16進数の文字列に変換
   const randomString = crypto.randomBytes(16).toString("hex");
   // JWTの生成
