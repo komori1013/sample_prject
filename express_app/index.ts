@@ -33,6 +33,22 @@ db.connect((err: any) => {
 let createAutenticationTable = "CREATE TABLE IF NOT EXISTS authentication (id INT AUTO_INCREMENT PRIMARY KEY, account_name VARCHAR(255), password VARCHAR(255))";
 let createTokenTable = "CREATE TABLE IF NOT EXISTS token (id INT AUTO_INCREMENT PRIMARY KEY, token VARCHAR(255))";
 
+db.query(createAutenticationTable, (err: any) => {
+  if (err) {
+    console.error("Error creating authentication table:", err);
+  } else {
+    console.log("Authentication table is ready");
+  }
+});
+
+db.query(createTokenTable, (err: any) => {
+  if (err) {
+    console.error("Error creating token table:", err);
+  } else {
+    console.log("Token table is ready");
+  }
+});
+
 // データの追加
 app.post("/api/authentication", (req, res) => {
   const account_name = req.body.account_name;
@@ -72,7 +88,7 @@ app.post("/api/token", (req, res) => {
 });
 
 // ポート番号の設定
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 // サーバーの起動
 app.listen(PORT, () => {
