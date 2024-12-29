@@ -49,6 +49,10 @@ db.query(createTokenTable, (err: any) => {
   }
 });
 
+app.get("/api/authentication", (req, res) => {
+      res.send("hello world!");
+    });
+
 // データの追加
 app.post("/api/authentication", (req, res) => {
   const account_name = req.body.account_name;
