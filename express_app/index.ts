@@ -49,9 +49,13 @@ db.query(createTokenTable, (err: any) => {
   }
 });
 
-app.get("/api/authentication", (req, res) => {
-      res.send("hello world!");
-    });
+app.get('/api/', (req, res) => {
+  res.json({ message: 'API Root' });
+});
+
+app.get('/api/authentication', (req, res) => {
+  res.json({ message: 'Authentication API' });
+});
 
 // データの追加
 app.post("/api/authentication", (req, res) => {
