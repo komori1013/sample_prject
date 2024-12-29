@@ -31,8 +31,10 @@ db.connect((err) => {
     }
     console.log("Connected to the database");
 });
+let createAutenticationTable = "CREATE TABLE IF NOT EXISTS authentication (id INT AUTO_INCREMENT PRIMARY KEY, account_name VARCHAR(255), password VARCHAR(255))";
+let createTokenTable = "CREATE TABLE IF NOT EXISTS token (id INT AUTO_INCREMENT PRIMARY KEY, token VARCHAR(255))";
 // データの追加
-app.post("/authentication", (req, res) => {
+app.post("/api/authentication", (req, res) => {
     const account_name = req.body.account_name;
     const password = req.body.password;
     const query = "SELECT * FROM authentication WHERE account_name = ? AND password = ?";
@@ -48,7 +50,7 @@ app.post("/authentication", (req, res) => {
         }
     });
 });
-app.post("/token", (req, res) => {
+app.post("/api/token", (req, res) => {
     // ランダムな32文字の生成、hexは16進数の略、ランダムなバイトデータを16進数の文字列に変換
     const randomString = crypto_1.default.randomBytes(16).toString("hex");
     // JWTの生成

@@ -30,6 +30,9 @@ db.connect((err: any) => {
   console.log("Connected to the database");
 });
 
+let createAutenticationTable = "CREATE TABLE IF NOT EXISTS authentication (id INT AUTO_INCREMENT PRIMARY KEY, account_name VARCHAR(255), password VARCHAR(255))";
+let createTokenTable = "CREATE TABLE IF NOT EXISTS token (id INT AUTO_INCREMENT PRIMARY KEY, token VARCHAR(255))";
+
 // データの追加
 app.post("/api/authentication", (req, res) => {
   const account_name = req.body.account_name;
