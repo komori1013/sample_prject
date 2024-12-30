@@ -1,8 +1,8 @@
+import dotenv from "dotenv";
+import "dotenv/config";
 import express, { Request, Response } from "express";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-import "dotenv/config";
 const mysql = require("mysql"); //zennの記事では"mysql2"
 const cors = require("cors");
 

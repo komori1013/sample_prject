@@ -3,11 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const dotenv_1 = __importDefault(require("dotenv"));
+require("dotenv/config");
 const express_1 = __importDefault(require("express"));
 const crypto_1 = __importDefault(require("crypto"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const dotenv_1 = __importDefault(require("dotenv"));
-require("dotenv/config");
 const mysql = require("mysql"); //zennの記事では"mysql2"
 const cors = require("cors");
 // サーバーの設定
@@ -49,8 +49,11 @@ db.query(createTokenTable, (err) => {
         console.log("Token table is ready");
     }
 });
-app.get("/api/authentication", (req, res) => {
-    res.send("hello world!");
+app.get('/api/', (req, res) => {
+    res.json({ message: 'API Root' });
+});
+app.get('/api/authentication', (req, res) => {
+    res.json({ message: 'Authentication API' });
 });
 // データの追加
 app.post("/api/authentication", (req, res) => {
