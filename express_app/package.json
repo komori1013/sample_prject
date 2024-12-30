@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:local": "cross-env NODE_ENV=development tsc",
-    "build:production": "cross-env NODE_ENV=production tsc",
+    "build:production": "NODE_ENV=production tsc",
     "start:local": "cross-env NODE_ENV=development dotenv -e .env.development -- node ./dist/index.js",
-    "start:production": "cross-env NODE_ENV=production dotenv -e .env.production -- node ./dist/index.js"
+    "start:production": "NODE_ENV=production dotenv -e .env.production -- node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
