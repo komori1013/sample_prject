@@ -52,7 +52,15 @@ app.get('/api/', (req, res) => {
 });
 
 app.get('/api/authentication', (req, res) => {
-  res.json({ message: 'Authentication API' });
+  const query = "SELECT * FROM authentication";
+  db.query(query, (err:any, result:any) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Error retrieving data from database");
+    } else {
+      res.status(200).json(result);
+    }
+  });
 });
 
 // データの追加
