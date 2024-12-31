@@ -28,6 +28,25 @@ db.connect((err: any) => {
   console.log("Connected to the database");
 });
 
+db.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_DATABASE}`, (err: any) => {
+  if (err) {
+    console.error("Error creating database:", err);
+    return;
+  }
+  console.log("Database created or already exists");
+
+  // Now connect to the newly created database
+  db.changeUser({database : process.env.DB_DATABASE}, (err: any) => {
+    if (err) {
+      console.error("Error changing database:", err);
+      return;
+    }
+    console.log("Connected to the database:", process.env.DB_DATABASE);
+
+    // Create tables or perform other database operations here
+  });
+});
+
 let createAutenticationTable = "CREATE TABLE IF NOT EXISTS authentication (id INT AUTO_INCREMENT PRIMARY KEY, account_name VARCHAR(255), password VARCHAR(255))";
 let createTokenTable = "CREATE TABLE IF NOT EXISTS token (id INT AUTO_INCREMENT PRIMARY KEY, token VARCHAR(255))";
 
