@@ -83,7 +83,7 @@ app.post("/api/authentication", (req, res) => {
     }
   });
 });
-
+/*
 app.post("/api/token", (req, res) => {
   // ランダムな32文字の生成、hexは16進数の略、ランダムなバイトデータを16進数の文字列に変換
   const randomString = crypto.randomBytes(16).toString("hex");
@@ -100,6 +100,7 @@ app.post("/api/token", (req, res) => {
     }
   });
 });
+*/
 
 // ポート番号の設定
 const PORT = process.env.PORT || 3000;

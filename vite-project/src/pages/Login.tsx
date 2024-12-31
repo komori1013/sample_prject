@@ -36,12 +36,14 @@ const Login = () => {
         throw new Error(data.error);
     
       }
+      // 認証成功時の処理 
+      navigate('/memberonly');
 
     } catch (error) {
       setErrorMessage((error as Error).message);
       return;
     };
-
+    /*
     try {
       const verifyRes = await fetch(`${import.meta.env.VITE_API_URL}/token`, // fetchとは、サーバーと通信するためのグローバル関数で、Promiseを返す。リクエストを送信し、レスポンスを取得するための簡単な方法を提供する
         {
@@ -64,9 +66,9 @@ const Login = () => {
       return;
     };
 
-
+*/
   };
-
+  
   return (
     <div>
       <h1>Login</h1>
