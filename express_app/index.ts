@@ -1,14 +1,12 @@
-import dotenv from "dotenv";
-import "dotenv/config";
 import express, { Request, Response } from "express";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
 const mysql = require("mysql"); //zennの記事では"mysql2"
 const cors = require("cors");
+require("dotenv").config(); // .envファイルを読み込む
 
 // サーバーの設定
 const app = express();    // expressを使う
-dotenv.config();          // アプリケーションで動作するようにdotenvを設定する?
 app.use(cors());          // corsを使うと、クロスオリジンのエラーが出なくなる?
 app.use(express.json());  // express.json()を使うと、req.bodyを使えるようになる
 
