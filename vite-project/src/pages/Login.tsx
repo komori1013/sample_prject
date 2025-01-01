@@ -43,7 +43,7 @@ const Login = () => {
       setErrorMessage((error as Error).message);
       return;
     };
-    /*
+    
     try {
       const verifyRes = await fetch(`${import.meta.env.VITE_API_URL}/token`, // fetchとは、サーバーと通信するためのグローバル関数で、Promiseを返す。リクエストを送信し、レスポンスを取得するための簡単な方法を提供する
         {
@@ -66,7 +66,7 @@ const Login = () => {
       return;
     };
 
-*/
+
   };
   
   return (
