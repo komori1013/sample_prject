@@ -78,7 +78,7 @@ app.post("/api/authentication", (req, res) => {
       return res.status(401).json({ error: "Invalid Account Name or Password"});
     }
 
-    if (result.length > 1) {
+    if (result.length >= 1) {
       return res.status(200).json({ message: "Authentication Success"});
     }
   });
